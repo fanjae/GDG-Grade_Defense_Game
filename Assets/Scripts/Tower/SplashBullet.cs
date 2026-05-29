@@ -42,9 +42,9 @@ public class SplashBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Enemy enermy))
+        if (other.TryGetComponent(out Enemy enemy))
         {
-            TakeSplashDamage(enermy.transform.position, splashDamage);
+            TakeSplashDamage(enemy.transform.position, splashDamage);
             Destroy(gameObject);
         }
     }
