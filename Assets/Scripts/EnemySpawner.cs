@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawn Enemy Prefab")]
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs; // 0529 : 배열로 변경
     [Header("Spawn Enemy Position")]
     [SerializeField] private Transform spawnPoint;
     [Header("Spawn Setting")]
@@ -22,7 +22,13 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < spawnCount; i++)
         {
+            if (enemyPrefabs.Length == 0)
+                yield break;
+
+            GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+
             Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+
             yield return waitSpawn;
         }
     }
