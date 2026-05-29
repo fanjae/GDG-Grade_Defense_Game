@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d3281b5acf1bc44afc5076c903910c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerBuilder
-  towerPrefab: {fileID: 3995316109686142156, guid: d83f4f095412cfd44b9fdccf19a1b95f, type: 3}
+  towerPrefab: {fileID: 3995316109686142156, guid: eb05fdb71780f99408c099f70ceb5dd5, type: 3}
   buildTowerlayer:
     serializedVersion: 2
     m_Bits: 128
