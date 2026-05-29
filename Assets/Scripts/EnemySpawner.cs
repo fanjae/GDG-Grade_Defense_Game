@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawn Enemy Prefab")]
-    [SerializeField] private GameObject[] enemyPrefabs; // 0529 : ¹è¿­·Î º¯°æ
+    [SerializeField] private GameObject[] enemyPrefabs; // 0529 : ë°°ì—´ë¡œ ë³€ê²½
     [Header("Spawn Enemy Position")]
     [SerializeField] private Transform spawnPoint;
     [Header("Spawn Setting")]
