@@ -1427,7 +1427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3ca59b8e7be3a46be6fca8198eb856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemyPrefab: {fileID: 2035683306309228471, guid: a8f019c2f4a14b640a31c26182596a13, type: 3}
+  enemyPrefabs: []
   spawnPoint: {fileID: 1339458559}
   spawnCount: 10
   spawnInterval: 1
