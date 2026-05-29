@@ -44,10 +44,10 @@ public class DotBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Enemy enermy))
+        if (other.TryGetComponent(out Enemy enemy))
         {
             //3초동안 1초간격으로 2데미지 
-            enermy.TakeDotDamage(dotDamage, dotDuration, dotInterval);   
+            enemy.TakeDotDamage(dotDamage, dotDuration, dotInterval);   
             Destroy(gameObject);
         }
     }
