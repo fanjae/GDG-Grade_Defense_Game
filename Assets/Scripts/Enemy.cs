@@ -1,3 +1,4 @@
+ï»¿using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,9 +18,11 @@ public class Enemy : MonoBehaviour
     private int currentWayPointIndex;
     private PathManager pathManager;
 
+    private Coroutine dotDamageCo;
+
     private void Start()
     {
-        currentHp = maxHp; // ÇöÀç Ã¼·ÂÀ» ÃÖ´ë Ã¼·ÂÀ¸·Î ÃÊ±âÈ­
+        currentHp = maxHp; // í˜„ì¬ ì²´ë ¥ì„ ìµœëŒ€ ì²´ë ¥ìœ¼ë¡œ ì´ˆê¸°í™”
         currentWayPointIndex = 0;
         pathManager = FindAnyObjectByType<PathManager>();
         UpdateHpUI();
@@ -67,11 +70,34 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //ë„íŠ¸ë°ë¯¸ì§€
+    public void TakeDotDamage(int dotDamage, float dotDuration, float dotInterval)
+    {
+        if (dotDamageCo != null)
+        {
+            //ì´ë¯¸ ë„íŠ¸ë°ë¯¸ì§€ë¥¼ ë§ê³ ìˆë‹¤ë©´ ê¸°ì¡´ ë„íŠ¸ë°ë¯¸ì§€ ì¤‘ë‹¨
+            StopCoroutine(dotDamageCo);
+        }
+        //ìƒˆ ë„íŠ¸ë°ë¯¸ì§€ ì‹œì‘
+        dotDamageCo = StartCoroutine((DotDamageCo(dotDamage, dotDuration, dotInterval)));
+    }
+    IEnumerator DotDamageCo(int dotDamage, float dotDuration, float dotInterval)
+    {
+        float timer = 0.0f;
 
+        //1ì´ˆê°„ê²©ìœ¼ë¡œ 3ì´ˆë™ì•ˆ ë•Œë¦¬ê¸°
+        while (timer < dotDuration)
+        {
+            TakeDamage(dotDamage);
+            yield return new WaitForSeconds(dotInterval);
+            timer += dotInterval;
+        }
+        dotDamageCo = null;
+    }
 
     private void Die()
     {
-        //ÀûÀÌ Á×¾úÀ» ¶§ Á¡¼ö¸¦ ¿Ã¸®°í ÆÄ±«
+        //ì ì´ ì£½ì—ˆì„ ë•Œ ì ìˆ˜ë¥¼ ì˜¬ë¦¬ê³  íŒŒê´´
         if (GameManager.Instance != null)
         {
             GameManager.Instance.AddScore(scoreValue);
@@ -81,7 +107,7 @@ public class Enemy : MonoBehaviour
 
     private void EndPoint()
     {
-        //ÀûÀÌ ³¡±îÁö µµ´ŞÇßÀ» ¶§ ¶óÀÌÇÁ °¨¼Ò?
+        //ì ì´ ëê¹Œì§€ ë„ë‹¬í–ˆì„ ë•Œ ë¼ì´í”„ ê°ì†Œ?
         Destroy(gameObject);
     }
 
