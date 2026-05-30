@@ -124,6 +124,20 @@ public class NormalTowerBase : MonoBehaviour
             bullet.Initialize(CurrentEnemy, damage, bulletSpeed);
         }
     }
+    public void ApplyBuff(int damageAdd, float intervalSub)
+    {
+        damage += damageAdd;
+        attackInterval -= intervalSub;
+        attackInterval = Mathf.Max(0.1f, attackInterval); // 최소 공격 간격 제한
+        AttackWait = new WaitForSeconds(attackInterval); // 대기 시간 갱신
+    }
+
+    public void RemoveBuff(int damageSub, float intervalAdd)
+    {
+        damage -= damageSub;
+        attackInterval += intervalAdd;
+        AttackWait = new WaitForSeconds(attackInterval); // 대기 시간 갱신
+    }
 
     private void OnDrawGizmosSelected()
     {

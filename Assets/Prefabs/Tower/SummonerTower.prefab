@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7333040742556380447}
   - component: {fileID: 1492910395389681918}
   - component: {fileID: 161408366357862272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 5254597547161716371}
   - component: {fileID: 1018428608103287209}
   - component: {fileID: 9220793640334185861}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 282161277219918993}
   - component: {fileID: 3984246774411434777}
   - component: {fileID: 1656766014770360674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SummonerTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 3423061949951954995}
   - component: {fileID: 4894989091144318863}
   - component: {fileID: 7166321124945243149}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CoolDownCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6171500487407237789}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
