@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class NormalTowerBase : MonoBehaviour
 {
- [Header("설정")]
+    [Header("설정")]
     [Tooltip("회전하고 총알이 나갈 위치")]
     [SerializeField] private Transform towerHead;
     [Tooltip("총알 생성 위치")]
