@@ -1,9 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NormalTowerBase : MonoBehaviour
 {
- [Header("설정")]
+    [Header("설정")]
     [Tooltip("회전하고 총알이 나갈 위치")]
     [SerializeField] private Transform towerHead;
     [Tooltip("총알 생성 위치")]
@@ -23,6 +24,9 @@ public class NormalTowerBase : MonoBehaviour
 
     [Tooltip("적 판별 레이어 설정")]
     [SerializeField] protected LayerMask enemyLayer;
+
+    [Header("Cooldown UI")]
+    [SerializeField] private TowerCooldownUI cooldownUI;
     
     protected Enemy CurrentEnemy;
     protected WaitForSeconds AttackWait;
@@ -31,6 +35,8 @@ public class NormalTowerBase : MonoBehaviour
     {
         AttackWait = new WaitForSeconds(attackInterval);
         if (towerHead == null) towerHead = transform;
+
+        cooldownUI?.SetCooldown(1.0f);
     }
 
     protected virtual void Start()
@@ -81,16 +87,32 @@ public class NormalTowerBase : MonoBehaviour
         towerHead.rotation = Quaternion.Slerp(towerHead.rotation,lookRotation,Time.deltaTime * 5.0f);
     }
 
-    protected virtual IEnumerator AttackCo()
+    protected virtual IEnumerator AttackCo() 
     {
+        // 공격 전용 코루틴 
         while (true)
         {
-            if (CurrentEnemy != null)
+            if (CurrentEnemy == null) // 공격 대상이 없음.
             {
-                Fire();
+                cooldownUI?.SetCooldown(1.0f); // 쿨타임 꽉참
+                yield return null; // 다음 프레임까지 대기
+                continue; // while 처음으로 이동
             }
 
-            yield return AttackWait;
+            Fire();
+
+            float timer = 0.0f;
+            cooldownUI?.SetCooldown(0.0f); // 발사 이후 시점 비율은 0%
+
+            while (timer < attackInterval) // 공격 쿨타임 동안 UI 갱신
+            {
+                timer += Time.deltaTime; // 프레임 시간 만큼 누적
+
+                cooldownUI?.SetCooldown(timer / attackInterval);
+
+                yield return null;
+            }
+            cooldownUI?.SetCooldown(1.0f); // 다시 발사 가능 상태로 원복.
         }
     }
 
