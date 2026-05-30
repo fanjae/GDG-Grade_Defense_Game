@@ -6,7 +6,7 @@ public class StageController : MonoBehaviour
     [Header("Spawner")]
     [SerializeField] private EnemySpawner enemySpawner;
 
-    [Header("Stage Waves"]
+    [Header("Stage Waves")]
     [SerializeField] private StageData[] stages = new StageData[5];
 
     [Header("Build UI")]
