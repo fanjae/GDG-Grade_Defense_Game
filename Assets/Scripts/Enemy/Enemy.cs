@@ -9,14 +9,14 @@ public class Enemy : MonoBehaviour
     public event Action<Enemy> onRemoved;
 
     [Header("Move Setting")]
-    [SerializeField] private float moveSpeed;
+    [SerializeField] protected float moveSpeed;
     [Header("Hp Setting")]
-    [SerializeField] private int maxHp;
+    [SerializeField] protected int maxHp;
     [Header("Gold Setting")]
-    [SerializeField] private int coinValue;
+    [SerializeField] protected int coinValue;
 
     [Header("Hp UI")]
-    [SerializeField] private Slider hpSlider;
+    [SerializeField] protected Slider hpSlider;
 
     private int currentHp;
     private int currentWayPointIndex;
