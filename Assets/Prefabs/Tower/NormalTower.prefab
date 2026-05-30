@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7333040742556380447}
   - component: {fileID: 1492910395389681918}
   - component: {fileID: 161408366357862272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 282161277219918993}
   - component: {fileID: 3984246774411434777}
   - component: {fileID: 8188196390231066604}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NormalTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 9028548580767995760}
   - component: {fileID: 6911738311415018303}
   - component: {fileID: 8320746917136732468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CoolDownCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 7706992355267349292}
   - component: {fileID: 226519841854223257}
   - component: {fileID: 6562444678921554191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6171500487407237789}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
