@@ -3,8 +3,9 @@ using UnityEngine.UIElements;
 
 public class TowerBuilder : MonoBehaviour
 {
-    [SerializeField] private GameObject towerPrefab;
     [SerializeField] private LayerMask buildTowerlayer;
+
+    public GameObject TowerPrefab { get; set; }
 
     private Camera mainCam;
 
@@ -72,7 +73,7 @@ public class TowerBuilder : MonoBehaviour
                 Vector3 buildPosition = hit.collider.transform.position;
 
                 buildPosition.y = 0.5f;
-                Instantiate(towerPrefab, buildPosition, Quaternion.identity);
+                Instantiate(TowerPrefab, buildPosition, Quaternion.identity);
 
                 buildTile.SetBuild();
             }
