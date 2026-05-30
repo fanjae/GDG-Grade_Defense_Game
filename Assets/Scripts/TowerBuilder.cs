@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TowerBuilder : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] private LayerMask buildTowerlayer;
 
     private Camera mainCam;
+
+    private Renderer hitRenderer;
+    private Color originColor;
 
     private void Start()
     {
@@ -17,6 +21,36 @@ public class TowerBuilder : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             BuildTower();
+        }
+
+        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 100.0f, buildTowerlayer))
+        {
+            if (hit.collider.TryGetComponent(out Renderer renderer))
+            {
+                if (hitRenderer != null && hitRenderer != renderer)
+                {
+                    hitRenderer.material.color = originColor;
+                }
+
+                if (hitRenderer != renderer)
+                {
+                    hitRenderer = renderer;
+                    originColor = renderer.material.color;
+                    hitRenderer.material.color = Color.orange;
+                }
+                return;
+            }
+        }
+
+        if (hitRenderer != null)
+        {
+            hitRenderer.material.color = originColor;
+
+            hitRenderer = null;
         }
     }
     
