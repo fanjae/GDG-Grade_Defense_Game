@@ -7,9 +7,9 @@ public class NormalTowerBase : MonoBehaviour
     [Tooltip("회전하고 총알이 나갈 위치")]
     [SerializeField] private Transform towerHead;
     [Tooltip("총알 생성 위치")]
-    [SerializeField] private Transform firePoint;
+    [SerializeField] protected Transform firePoint;
     [Tooltip("총알 프리펩")]
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] protected GameObject bulletPrefab;
 
     [Header("공격 세팅")] 
     [Tooltip("공격 사거리")]
@@ -24,12 +24,12 @@ public class NormalTowerBase : MonoBehaviour
     [Tooltip("적 판별 레이어 설정")]
     [SerializeField] protected LayerMask enemyLayer;
     
-    protected Enemy currentEnermy;
-    protected WaitForSeconds attackWait;
+    protected Enemy CurrentEnemy;
+    protected WaitForSeconds AttackWait;
 
     protected virtual void Awake()
     {
-        attackWait = new WaitForSeconds(attackInterval);
+        AttackWait = new WaitForSeconds(attackInterval);
         if (towerHead == null) towerHead = transform;
     }
 
@@ -65,14 +65,14 @@ public class NormalTowerBase : MonoBehaviour
                 }
             }
         }
-        currentEnermy = nearestEnemy;
+        CurrentEnemy = nearestEnemy;
     }
 
     protected virtual void RotatetTarget()
     {
-        if (currentEnermy == null) return;
+        if (CurrentEnemy == null) return;
         
-        Vector3 direction = currentEnermy.transform.position - towerHead.position;
+        Vector3 direction = CurrentEnemy.transform.position - towerHead.position;
         direction.y = 0;
         
         if(direction == Vector3.zero) return;
@@ -85,12 +85,12 @@ public class NormalTowerBase : MonoBehaviour
     {
         while (true)
         {
-            if (currentEnermy != null)
+            if (CurrentEnemy != null)
             {
                 Fire();
             }
 
-            yield return attackWait;
+            yield return AttackWait;
         }
     }
 
@@ -99,7 +99,7 @@ public class NormalTowerBase : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         if (bulletObj.TryGetComponent(out bullet bullet))
         {
-            bullet.Initialize(currentEnermy, damage, bulletSpeed);
+            bullet.Initialize(CurrentEnemy, damage, bulletSpeed);
         }
     }
 
