@@ -1,10 +1,13 @@
-﻿using System.Collections;
-using Unity.VisualScripting;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    // 몬스터가 사망하거나 끝점에 도달해서 제거 되는 것을 외부에 알려주기 위한 Event
+    public event Action<Enemy> onRemoved;
+
     [Header("Move Setting")]
     [SerializeField] private float moveSpeed = 2.5f;
     [Header("Hp Setting")]
@@ -14,11 +17,15 @@ public class Enemy : MonoBehaviour
 
     [Header("Hp UI")]
     [SerializeField] private Slider hpSlider;
+
     private int currentHp;
     private int currentWayPointIndex;
     private PathManager pathManager;
 
     private Coroutine dotDamageCo;
+
+    // 제거된 Enemy인지 확인(이벤트 중복처리 방지)
+    private bool isRemoved;
 
     private void Start()
     {
@@ -43,15 +50,16 @@ public class Enemy : MonoBehaviour
         Vector3 dir = targetWayPoint.position - transform.position;
 
         transform.position += dir.normalized * moveSpeed * Time.deltaTime;
-
         transform.LookAt(targetWayPoint);
 
         float distance = Vector3.Distance(transform.position, targetWayPoint.position);
 
+        // 목표 웨이포인트 도착하면 다음 웨이포인트로 이동
         if (distance < 0.2f )
         {
             currentWayPointIndex++;
             
+            // 마지막 웨이포인트 도달시 끝점 도달(적 사망 처리)
             if(currentWayPointIndex >= pathManager.WayPointCount)
             {
                 EndPoint();
@@ -61,6 +69,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage( int damage )
     {
+        if (isRemoved) return; 
+
         currentHp -= damage;
         UpdateHpUI();
 
@@ -70,9 +80,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //도트데미지
+    //도트 데미지 적용
     public void TakeDotDamage(int dotDamage, float dotDuration, float dotInterval)
     {
+        // 제거된 적이 추가 데미지 받지 않게 처리
+        if (isRemoved) return; 
+
         if (dotDamageCo != null)
         {
             //이미 도트데미지를 맞고있다면 기존 도트데미지 중단
@@ -81,14 +94,19 @@ public class Enemy : MonoBehaviour
         //새 도트데미지 시작
         dotDamageCo = StartCoroutine((DotDamageCo(dotDamage, dotDuration, dotInterval)));
     }
+
     IEnumerator DotDamageCo(int dotDamage, float dotDuration, float dotInterval)
     {
         float timer = 0.0f;
 
-        //1초간격으로 3초동안 때리기
+        // dotInterval 간격으로 dotDuration 동안 데미지 적용.
         while (timer < dotDuration)
         {
             TakeDamage(dotDamage);
+
+            // 도트 데미지로 사망시 코루틴 종료.
+            if (isRemoved) yield break;
+
             yield return new WaitForSeconds(dotInterval);
             timer += dotInterval;
         }
@@ -102,12 +120,23 @@ public class Enemy : MonoBehaviour
         {
             GameManager.Instance.AddScore(scoreValue);
         }
-        Destroy(gameObject);
+
+        RemoveEnemy();
     }
 
     private void EndPoint()
     {
         //적이 끝까지 도달했을 때 라이프 감소?
+        Destroy(gameObject);
+    }
+
+    private void RemoveEnemy()
+    {
+        if (isRemoved) return;
+
+        isRemoved = true;
+
+        onRemoved?.Invoke(this);
         Destroy(gameObject);
     }
 
