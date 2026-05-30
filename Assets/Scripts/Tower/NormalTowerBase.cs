@@ -15,7 +15,7 @@ public class NormalTowerBase : MonoBehaviour
     [Header("공격 세팅")] 
     [Tooltip("공격 사거리")]
     [SerializeField] protected float attackRange = 5.0f;
-    [Tooltip("공격 간겨 작을 수록 빠른 공격")]
+    [Tooltip("공격 간격 작을 수록 빠른 공격")]
     [SerializeField] protected float attackInterval = 0.8f;
     [Tooltip("한발당 데미지")]
     [SerializeField] protected int damage = 1;
