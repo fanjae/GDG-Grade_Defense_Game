@@ -1,64 +1,85 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // ì‹±ê¸€í†¤ íŒ¨í„´.
+    // ê²Œì„ ì „ì²´ì—ì„œ í•˜ë‚˜ë§Œ ì¡´ì¬í•˜ëŠ” ê´€ë¦¬ì ê°ì²´
     public static GameManager Instance { get; private set; }
-    //°ÔÀÓ ÀüÃ¤¿¡¼­ ´Ü ÇÏ³ª¸¸ Á¸ÀçÇÏ´Â °ü¸®ÀÚ °´Ã¼
-    // ¤¤ µğÀÚÀÎ ±â¹ı : ½Ì±ÛÅæ ÆĞÅÏ
-    //½Ì±ÛÅæ ÆĞÅÏ, ÆíÇÏÁö¸¸ ³²¿ëÇÏ¸é µ¶?
-    // -> 1. ÀÇÁ¸¼ºÀÌ °­ÇØÁü
-    // -> 2. °´Ã¼°¡ ¹Ù²î¸é ÀüºÎ ¼öÁ¤ÇØ¾ß ÇÔ
-    // -> 3. ÅØ½ºÆ®°¡ ¾î·Á¿öÁú ¼ö ÀÖÀ½
 
-    [SerializeField] private TextMeshProUGUI scoreText;
-    private int score;
+    [Header("Coin UI")]
+    [SerializeField] private CoinUI coinUI;
+
+    [Header("Life UI")]
+    [SerializeField] private LifeUI lifeUI;
+
+    [Header("Life Setting")]
+    [SerializeField] private int maxLife = 30;
+
+    [Header("Coin Setting")]
+    [SerializeField] private int startCoin = 0;
+
+    private int currentLife;
+    private int coin;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // ¾ÀÀÌ ÀüÈ¯µÇ¾îµµ »èÁ¦µÇÁö ¾Êµµ·Ï
+            DontDestroyOnLoad(gameObject); // ì”¬ ì „í™˜ì— ë”°ë¥¸ ì‚­ì œ ë°©ì§€.
         }
         else
-        { Destroy(gameObject); }
+        { 
+            Destroy(gameObject); 
+        }
     }
 
-    private void Start()
+    private void Start() // ê²Œì„ ì´ˆê¸° ì„¤ì •
     {
-        score = 0;
-        UpdateScoreUI();
+        currentLife = maxLife;
+        coin = startCoin;
+
+        UpdateLifeUI();
+        UpdateCoinUI();
     }
 
-    public void AddScore(int amount)
-    { 
-        score += amount;
-        UpdateScoreUI();
-    }
-
-    private void UpdateScoreUI()
+    public void AddCoin(int amount) // ì½”ì¸ ì¦ê°€
     {
-        if(scoreText!=null)
-        { scoreText.text = $"Score : {score}"; }
+        coin += amount;
+        UpdateCoinUI();
+    }
+
+    public bool TryUseCoin(int amount) // ì½”ì¸ ì‚¬ìš© ì‹œë„
+    {
+        if (coin < amount) // ëˆ ë¶€ì¡±
+            return false;
+
+        coin -= amount; 
+        UpdateCoinUI();
+        return true;
+    }
+
+    public void DecreaseLife(int amount) // ë¼ì´í”„ ê°ì†Œ
+    {
+        currentLife -= amount;
+        currentLife = Mathf.Clamp(currentLife, 0, maxLife); // í˜„ì¬ Lifeê°€ 0ì´í•˜ë¡œ ë–¨ì–´ì§€ì§€ ì•Šë„ë¡ ì¡°ì •.
+
+        UpdateLifeUI();
+
+        if (currentLife <= 0) // í˜„ì¬ ë¼ì´í”„ê°€ 0ì´ë©´ ê²Œì„ì˜¤ë²„
+        {
+            // GameOver();  
+        }
+    }
+
+    private void UpdateLifeUI() // ë¼ì´í”„ ê°±ì‹ 
+    {
+        if (lifeUI != null) lifeUI.UpdateLife(currentLife);
+    }
+
+    private void UpdateCoinUI() // ì½”ì¸ ì •ë³´ ê°±ì‹ 
+    {
+        if (coinUI != null) coinUI.UpdateCoin(coin);
     }
 }
-
-// public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
-// {
-//     protected static T instance;
-//     public static T Instance
-//     {
-//         get { return instance; }
-//     }
-//     protected virtual void Awake()
-//     {
-//         if(instance == null)
-//         { instance = this as T; }
-//         else { Destroy(instance); }
-//     }
-// }
-// public class SoundManager : Singleton<SoundManager>
-// {
-// 
-// }
