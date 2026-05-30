@@ -115,10 +115,10 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        //적이 죽었을 때 점수를 올리고 파괴
+        //적이 죽었을 때 코인을 지급하고 파괴
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.AddScore(scoreValue);
+            GameManager.Instance.AddCoin(scoreValue);
         }
 
         RemoveEnemy();
@@ -126,8 +126,11 @@ public class Enemy : MonoBehaviour
 
     private void EndPoint()
     {
-        //적이 끝점에 도달했을 때 제거 이벤트 발생
-        // 추후 라이프 감소 로직도 여기에 추가 예정.
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.DecreaseLife(1);
+        }
+
         RemoveEnemy();
     }
 
