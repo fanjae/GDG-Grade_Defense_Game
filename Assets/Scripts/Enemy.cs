@@ -126,17 +126,21 @@ public class Enemy : MonoBehaviour
 
     private void EndPoint()
     {
-        //적이 끝까지 도달했을 때 라이프 감소?
-        Destroy(gameObject);
+        //적이 끝점에 도달했을 때 제거 이벤트 발생
+        // 추후 라이프 감소 로직도 여기에 추가 예정.
+        RemoveEnemy();
     }
 
     private void RemoveEnemy()
     {
+        // 중복 제거 방지
         if (isRemoved) return;
 
         isRemoved = true;
 
+        // Enemy 제거를 알림(Spawner에게 통보)
         onRemoved?.Invoke(this);
+
         Destroy(gameObject);
     }
 
