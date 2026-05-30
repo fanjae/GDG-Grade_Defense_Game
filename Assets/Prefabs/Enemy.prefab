@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e29717c1b1c42a4bb7ab4f25175fc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  moveSpeed: 2.5
+  moveSpeed: 20
   maxHp: 50
   scoreValue: 10
   hpSlider: {fileID: 1236637109056107016}
