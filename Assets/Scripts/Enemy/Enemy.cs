@@ -9,18 +9,22 @@ public class Enemy : MonoBehaviour
     public event Action<Enemy> onRemoved;
 
     [Header("Move Setting")]
-    [SerializeField] private float moveSpeed = 2.5f;
+    [SerializeField] protected float moveSpeed;
     [Header("Hp Setting")]
-    [SerializeField] private int maxHp = 3;
-    [Header("Score Setting")]
-    [SerializeField] private int scoreValue = 10;
+    [SerializeField] protected int maxHp;
+    [Header("Gold Setting")]
+    [SerializeField] protected int coinValue;
 
     [Header("Hp UI")]
-    [SerializeField] private Slider hpSlider;
+    [SerializeField] protected Slider hpSlider;
 
     private int currentHp;
     private int currentWayPointIndex;
     private PathManager pathManager;
+
+    //슬로우용 원본 스피드 저장
+    protected float originSpeed;
+    public int slowCount;
 
     private Coroutine dotDamageCo;
 
@@ -55,21 +59,21 @@ public class Enemy : MonoBehaviour
         float distance = Vector3.Distance(transform.position, targetWayPoint.position);
 
         // 목표 웨이포인트 도착하면 다음 웨이포인트로 이동
-        if (distance < 0.2f )
+        if (distance < 0.2f)
         {
             currentWayPointIndex++;
-            
+
             // 마지막 웨이포인트 도달시 끝점 도달(적 사망 처리)
-            if(currentWayPointIndex >= pathManager.WayPointCount)
+            if (currentWayPointIndex >= pathManager.WayPointCount)
             {
                 EndPoint();
             }
         }
     }
 
-    public void TakeDamage( int damage )
+    public void TakeDamage(int damage)
     {
-        if (isRemoved) return; 
+        if (isRemoved) return;
 
         currentHp -= damage;
         UpdateHpUI();
@@ -84,7 +88,7 @@ public class Enemy : MonoBehaviour
     public void TakeDotDamage(int dotDamage, float dotDuration, float dotInterval)
     {
         // 제거된 적이 추가 데미지 받지 않게 처리
-        if (isRemoved) return; 
+        if (isRemoved) return;
 
         if (dotDamageCo != null)
         {
@@ -113,12 +117,26 @@ public class Enemy : MonoBehaviour
         dotDamageCo = null;
     }
 
+    //슬로우
+    public void GetSlow(float amount)
+    {
+        originSpeed = moveSpeed;
+        moveSpeed = moveSpeed / 100 * amount;
+        slowCount++;
+    }
+    public void DispelSlow()
+    {
+        slowCount--;
+        if (slowCount == 0)
+        { moveSpeed = originSpeed; }
+    }
+
     private void Die()
     {
         //적이 죽었을 때 코인을 지급하고 파괴
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.AddCoin(scoreValue);
+            GameManager.Instance.AddCoin(coinValue);
         }
 
         RemoveEnemy();
