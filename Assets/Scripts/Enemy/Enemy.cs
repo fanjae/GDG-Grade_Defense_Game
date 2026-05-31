@@ -19,7 +19,7 @@ public abstract class Enemy : MonoBehaviour
     [Header("Hp UI")]
     [SerializeField] protected Slider hpSlider;
 
-    private int currentHp;
+    protected int currentHp;
     private int currentWayPointIndex;
     private PathManager pathManager;
 
