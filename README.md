@@ -1,5 +1,7 @@
 ## Grade Defense Game (README 진행중)
 
+<img width="620" height="420" alt="Image" src="https://github.com/user-attachments/assets/e0974b4f-c51a-4f93-a7c5-113b2c5b30a9" />
+
 > 학점 방어 컨셉의 타워 디펜스 팀 프로젝트입니다.
 
 ## 프로젝트 개요
