@@ -22,6 +22,16 @@ public class BossEnemy : Enemy
     private WaitForSeconds bossCooldown;
     private bool isStun = true; //스턴 발동 조건
 
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        if (currentHp <= maxHp / 2 && isStun == true) //현재 체력이 maxHp의 절반일 시(1회)
+        {
+            isStun = false; //1회만 발동
+            StartCoroutine(TowerStun());
+        }
+    }
+
     protected override void Reset()
     {
         moveSpeed = 2.0f;
@@ -38,6 +48,7 @@ public class BossEnemy : Enemy
     {
         base.Start();
         StartCoroutine(DestroyCo());
+
     }
     
     private IEnumerator DestroyCo()
@@ -74,14 +85,6 @@ public class BossEnemy : Enemy
             yield return bossCooldown;
         }
     }
-    public override void TakeDamage(int damage)
-    {
-        base.TakeDamage(damage);
-        if (currentHp <= maxHp / 2 && isStun == true) //현재 체력이 maxHp의 절반일 시(1회)
-        {
-            TowerStun();
-        }
-    }
 
     //기절: 체력 50% 이하로 떨어질 시 - 원형 범위 내 Tower n초 기절
     private IEnumerator TowerStun()
@@ -107,6 +110,5 @@ public class BossEnemy : Enemy
         }
         yield return bossWait;
         moveSpeed = originSpeed; //원래대로
-        isStun = false;
     }
 }
