@@ -28,6 +28,7 @@ public class BossEnemy : Enemy
         if (currentHp <= maxHp / 2 && isStun == true) //현재 체력이 maxHp의 절반일 시(1회)
         {
             isStun = false; //1회만 발동
+            StopCoroutine(DestroyCo());
             StartCoroutine(TowerStun());
         }
     }
@@ -48,7 +49,6 @@ public class BossEnemy : Enemy
     {
         base.Start();
         StartCoroutine(DestroyCo());
-
     }
     
     private IEnumerator DestroyCo()
@@ -100,15 +100,10 @@ public class BossEnemy : Enemy
             if (col.TryGetComponent(out NormalTowerBase tower))
             {
                 towersInCurrentRange.Add(tower);
-
-                if (!targetsInRange.Contains(tower))
-                {
-                    tower.AddStun(StunTime);
-                    targetsInRange.Add(tower);
-                }
             }
         }
         yield return bossWait;
         moveSpeed = originSpeed; //원래대로
+        StartCoroutine(DestroyCo());
     }
 }
