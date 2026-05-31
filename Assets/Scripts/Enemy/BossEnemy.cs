@@ -1,19 +1,35 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BossEnemy : Enemy
 {
+    private float bossInterval = 0.5f; //보스 스킬 캐스팅 간격
+
     [Header("Destroy time Setting")] //타워 Destroy 쿨타임
-    [SerializeField] protected float DestroyInterval = 3.0f;
+    [SerializeField] private float DestroyInterval = 3.0f;
+    [Header("TowerStun time Setting")] //타워의 Stun 시간
+    [SerializeField] private float StunTime = 3.0f;
+
     [Header("Fainting Range")] //보스 스킬 범위
     [SerializeField] private float attackRange = 5.0f;
     [Tooltip("타워 레이어 설정")]
-    [SerializeField] protected LayerMask towerLayer;
+    [SerializeField] private LayerMask towerLayer;
 
-    public Transform centerPoint;
     private WaitForSeconds bossWait;
     private WaitForSeconds bossCooldown;
-    private float bossInterval = 0.5f;
+    private bool isStun = true; //스턴 발동 조건
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        if (currentHp <= maxHp / 2 && isStun == true) //현재 체력이 maxHp의 절반일 시(1회)
+        {
+            isStun = false; //1회만 발동
+            StopCoroutine(DestroyCo());
+            StartCoroutine(TowerStun());
+        }
+    }
 
     protected override void Reset()
     {
@@ -32,6 +48,7 @@ public class BossEnemy : Enemy
         base.Start();
         StartCoroutine(DestroyCo());
     }
+    
     private IEnumerator DestroyCo()
     {
         //파괴: (n초마다)이동 중단 - 범위 내 가장 가까운 타워 삭제 - 쿨타임 대기 (이후 반복)
@@ -40,42 +57,50 @@ public class BossEnemy : Enemy
             moveSpeed = 0f; //이동 중단
             yield return bossWait;
 
-            Collider[] towers = Physics.OverlapSphere(centerPoint.position, attackRange, towerLayer);
+            Collider[] towers = Physics.OverlapSphere(transform.position, attackRange, towerLayer);
 
-            float nearestDistanceB = float.MaxValue;
-            Tower nearestTower = null;
+            float nearestDistance = float.MaxValue;
+            NormalTowerBase nearestTower = null;
 
             foreach (Collider towerCollider in towers)
             {
-                if (towerCollider.TryGetComponent(out Tower tower))
+                if (towerCollider.TryGetComponent(out NormalTowerBase tower))
                 {
-                    float distanceB = Vector3.Distance(centerPoint.position, tower.transform.position);
-                    if (distanceB < nearestDistanceB)
+                    float distance = Vector3.Distance(transform.position, tower.transform.position);
+                    if (distance < nearestDistance)
                     {
-                        nearestDistanceB = distanceB;
+                        nearestDistance = distance;
                         nearestTower = tower;
                     }
                 }
             }
-            if(nearestTower != null)
+            if (nearestTower != null)
             {
                 Destroy(nearestTower.gameObject);
             }
+            yield return bossWait;
             moveSpeed = originSpeed; //원래대로
             yield return bossCooldown;
         }
     }
 
-    //조건 true일 시
+    //기절: 체력 50% 이하로 떨어질 시 - 원형 범위 내 Tower n초 기절
+    private IEnumerator TowerStun()
+    {
+        moveSpeed = 0f; //이동 중단
+        yield return bossWait;
 
-    //이속 0
-    //정면 내 가장 가까운 Tower Destroy
-    //이속 원래대로
-    //Co destroy 쿨 만큼 중단
+        //범위 내 Tower들의 공격속도를 n초 간 0으로
+        Collider[] towers = Physics.OverlapSphere(transform.position, attackRange, towerLayer); 
+        foreach (var col in towers)
+        {
+            if (col.TryGetComponent(out NormalTowerBase tower))
+            {
+                tower.AddStun(StunTime);
+            }
+        }
+        yield return bossWait;
+        moveSpeed = originSpeed; //원래대로
+        StartCoroutine(DestroyCo());
+    }
 }
-    //기절: (1회)체력 nn% 이하로 떨어질 시 - 원형 범위 내 Tower n초 기절
-
-    //조건: 체력 nn회 이하일 시 & 스킬 조건이 true일 시
-    //이속 0
-    //범위 내 Tower 의 공격속도를 n초 간 0
-    //이속 원래대로
