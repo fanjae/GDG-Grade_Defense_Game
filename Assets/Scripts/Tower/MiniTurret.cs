@@ -19,8 +19,7 @@ public class MiniTurret : NormalTowerBase
         this.attackInterval = interval;
         this.bulletSpeed = bSpeed;
         this.lifetime = life;
+        
 
-        // 대기시간 재 초기화
-        AttackWait = new WaitForSeconds(attackInterval);
     }
 }
