@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     //슬로우용 원본 스피드 저장
     protected float originSpeed;
-    public int slowCount;
+    public int slowCount = 0;
 
     private Coroutine dotDamageCo;
 
@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
         currentWayPointIndex = 0;
         pathManager = FindAnyObjectByType<PathManager>();
         UpdateHpUI();
+        originSpeed = moveSpeed;
     }
 
     private void Update()
@@ -120,15 +121,17 @@ public class Enemy : MonoBehaviour
     //슬로우
     public void GetSlow(float amount)
     {
+        slowCount++;
+        if (slowCount > 1) { return; }
         originSpeed = moveSpeed;
         moveSpeed = moveSpeed / 100 * amount;
-        slowCount++;
     }
     public void DispelSlow()
     {
         slowCount--;
-        if (slowCount == 0)
-        { moveSpeed = originSpeed; }
+        if (slowCount > 0) { return; }
+        slowCount = 0;
+        moveSpeed = originSpeed;
     }
 
     private void Die()
