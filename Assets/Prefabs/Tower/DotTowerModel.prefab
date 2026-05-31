@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdaf45ef351dcb44faa789b76bd8782a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DotTower
-  towerHead: {fileID: 190886743199549191}
+  towerHead: {fileID: 2569135059059426558}
   firePoint: {fileID: 2284729335080687106}
   bulletPrefab: {fileID: 493041970070898211, guid: 8c8c292353a93ee4788a8051ac120bbd, type: 3}
   attackRange: 5
