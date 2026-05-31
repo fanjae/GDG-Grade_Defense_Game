@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿    using System;
+    using System.Collections;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
-using UnityEngine.UI;
+    using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -31,13 +32,19 @@ public class Enemy : MonoBehaviour
     // 제거된 Enemy인지 확인(이벤트 중복처리 방지)
     private bool isRemoved;
 
-    private void Start()
+    protected virtual void Start()
     {
+        Reset();
         currentHp = maxHp; // 현재 체력을 최대 체력으로 초기화
         currentWayPointIndex = 0;
         pathManager = FindAnyObjectByType<PathManager>();
         UpdateHpUI();
         originSpeed = moveSpeed;
+    }
+
+    protected virtual void Reset()
+    {
+
     }
 
     private void Update()

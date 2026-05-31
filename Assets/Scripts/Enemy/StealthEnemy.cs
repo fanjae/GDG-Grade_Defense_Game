@@ -21,14 +21,15 @@ public class StealthEnemy : Enemy
     private int enemyLayer;
     private int stealthLayer;
 
-    private void Reset()
+    protected override void Reset()
     {
         moveSpeed = 4.0f;
         maxHp = 10;
         coinValue = 5;
     }
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
         enemyLayer = LayerMask.NameToLayer(enemyLayerName);
         stealthLayer = LayerMask.NameToLayer(stealthLayerName);
 
