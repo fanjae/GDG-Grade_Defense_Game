@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,12 +16,10 @@ public class BossEnemy : Enemy
     [Tooltip("타워 레이어 설정")]
     [SerializeField] private LayerMask towerLayer;
 
-    private List<Tower> targetsInRange = new List<Tower>();
+    private List<NormalTowerBase> targetsInRange = new List<NormalTowerBase>();
 
     private WaitForSeconds bossWait;
     private WaitForSeconds bossCooldown;
-    private float currentHp;
-
     private bool isStun = true; //스턴 발동 조건
 
     protected override void Reset()
@@ -35,17 +32,12 @@ public class BossEnemy : Enemy
     {
         bossWait = new WaitForSeconds(bossInterval);
         bossCooldown = new WaitForSeconds(DestroyInterval);
-        currentHp = maxHp;
     }
 
     protected override void Start()
     {
         base.Start();
         StartCoroutine(DestroyCo());
-        if (currentHp <= maxHp / 2 && isStun == true) //현재 체력이 maxHp의 절반일 시(1회)
-        {
-            StartCoroutine(TowerStun());
-        }
     }
     
     private IEnumerator DestroyCo()
@@ -59,11 +51,11 @@ public class BossEnemy : Enemy
             Collider[] towers = Physics.OverlapSphere(transform.position, attackRange, towerLayer);
 
             float nearestDistance = float.MaxValue;
-            Tower nearestTower = null;
+            NormalTowerBase nearestTower = null;
 
             foreach (Collider towerCollider in towers)
             {
-                if (towerCollider.TryGetComponent(out Tower tower))
+                if (towerCollider.TryGetComponent(out NormalTowerBase tower))
                 {
                     float distance = Vector3.Distance(transform.position, tower.transform.position);
                     if (distance < nearestDistance)
@@ -82,6 +74,15 @@ public class BossEnemy : Enemy
             yield return bossCooldown;
         }
     }
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        if (currentHp <= maxHp / 2 && isStun == true) //현재 체력이 maxHp의 절반일 시(1회)
+        {
+            TowerStun();
+        }
+    }
+
     //기절: 체력 50% 이하로 떨어질 시 - 원형 범위 내 Tower n초 기절
     private IEnumerator TowerStun()
     {
@@ -89,11 +90,11 @@ public class BossEnemy : Enemy
         yield return bossWait;
 
         Collider[] towers = Physics.OverlapSphere(transform.position, attackRange, towerLayer);
-        List<Tower> towersInCurrentRange = new List<Tower>();
+        List<NormalTowerBase> towersInCurrentRange = new List<NormalTowerBase>();
         //범위 내 Tower들의 공격속도를 n초 간 0으로
         foreach (var col in towers)
         {
-            if (col.TryGetComponent(out Tower tower))
+            if (col.TryGetComponent(out NormalTowerBase tower))
             {
                 towersInCurrentRange.Add(tower);
 
