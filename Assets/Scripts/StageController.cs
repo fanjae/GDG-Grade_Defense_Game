@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class StageController : MonoBehaviour
@@ -17,6 +18,12 @@ public class StageController : MonoBehaviour
 
     [Header("Spawn Point")]
     [SerializeField] private GameObject spawnPointImage; // 몬스터 스폰 지점
+
+    [Header("Stage Start Countdown UI")]
+    [SerializeField] private GameObject countdownPanel;
+    [SerializeField] private TextMeshProUGUI countdownText;
+    [SerializeField] private int countdownTime = 3;
+    [SerializeField] private float countdownInterval = 1.0f;
 
     private int currentStageIndex;
     private int currentWaveIndex;
@@ -115,11 +122,31 @@ public class StageController : MonoBehaviour
         if (spawnPointImage != null)
             spawnPointImage.SetActive(false);
 
+        yield return StartCoroutine(ShowStageCountDown()); // 웨이브 시작 전 카운트 다운
+
     }
 
     // 다음 웨이브 시작 버튼 OnClick에 연결할 메서드
     public void OnClickNextWaveButton()
     {
         isNextWaveButtonClicked = true;
+    }
+    private IEnumerator ShowStageCountDown() // 카운트 다운 보이기
+    {
+        if (countdownPanel == null || countdownText == null) yield break;
+
+        countdownPanel.SetActive(true); // 패널 보여주기
+
+        for(int i=countdownTime; i>0; i--)  // 카운트 다운 시작
+        {
+            countdownText.text = i.ToString();
+            yield return new WaitForSeconds(countdownInterval);
+
+        }
+        countdownText.text = "START";
+        yield return new WaitForSeconds(0.5f);
+
+
+        countdownPanel.SetActive(false); // 패널 가리기
     }
 }
