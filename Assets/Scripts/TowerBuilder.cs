@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 public class TowerBuilder : MonoBehaviour
@@ -24,7 +25,10 @@ public class TowerBuilder : MonoBehaviour
         if (!CanBuild) // 웨이브 도중에는 비활성화 처리 (지을 수 없음)
             return ;
 
-        if(Input.GetMouseButtonDown(0))
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        if (Input.GetMouseButtonDown(0))
         {
             BuildTower();
         }
@@ -77,7 +81,7 @@ public class TowerBuilder : MonoBehaviour
 
                 Vector3 buildPosition = hit.collider.transform.position;
 
-                buildPosition.y = 0.5f;
+                buildPosition.y = 1.2f;
                 Instantiate(TowerPrefab, buildPosition, Quaternion.identity);
 
                 buildTile.SetBuild();
