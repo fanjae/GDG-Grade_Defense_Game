@@ -9,14 +9,10 @@ public class TowerBtnUI : MonoBehaviour
     private TextMeshProUGUI towerName;
 
     private GameObject towerPrefab;
+    private GameObject towerGhostPrefab;
 
-    private TowerBuilder towerBuilder;
-    
     private void Awake()
     {
-        // TowerBuilder 오브젝트 하이어라키 창에서 찾아서 TowerBuilder 스크립트 컴포넌트를 가져옴
-        towerBuilder = GameObject.Find("TowerBuilder").GetComponent<TowerBuilder>();
-        
         // towerButton UI 오브젝트의 Button 컴포넌트 가져옴
         towerBtn = GetComponent<Button>();
 
@@ -32,14 +28,25 @@ public class TowerBtnUI : MonoBehaviour
 
     private void OnClickTowerBtn()
     {
-        // TowerBulider에 타워 프리팹 저장
-        towerBuilder.TowerPrefab = towerPrefab;
+        // 고스트 프리팹 생성하기
+        GameObject towerGhostObj = Instantiate(towerGhostPrefab, Vector3.zero, Quaternion.identity);
+    
+        // 고스트 프리팹 스크립트에서 실제 프리팹 데이터 저장하기
+        if(towerGhostObj.TryGetComponent(out TowerGhost towerGhost))
+        {
+            towerGhost.SetTowerBuilderPrefabInfo(towerPrefab);
+        }
+        else
+        {
+            print("고스트 오브젝트 실제 프리팹 데이터 못넣음");
+        }
     }
 
-    public void SetTowerPrefab(GameObject towerPrefabObject, Sprite sprite, string name)
+    public void SetTowerPrefab(GameObject towerPrefabObject, GameObject towerGhostPrefabObject, Sprite sprite, string name)
     {
         // TowerData에 있는 정보를 받아와서 저장
         towerPrefab = towerPrefabObject;
+        towerGhostPrefab = towerGhostPrefabObject;
         towerImage.sprite = sprite;
         towerName.text = name;  
     }
