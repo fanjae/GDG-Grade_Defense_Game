@@ -2,7 +2,7 @@
 
 public class BigEnemy : Enemy
 {
-    private void Reset()
+    protected override void Reset()
     {
         moveSpeed = 1.0f;
         maxHp = 200;

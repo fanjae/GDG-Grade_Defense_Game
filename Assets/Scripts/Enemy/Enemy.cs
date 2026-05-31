@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿    using System;
+    using System.Collections;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
-using UnityEngine.UI;
+    using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     // 몬스터가 사망하거나 끝점에 도달해서 제거 되는 것을 외부에 알려주기 위한 Event
     public event Action<Enemy> onRemoved;
@@ -31,14 +32,17 @@ public class Enemy : MonoBehaviour
     // 제거된 Enemy인지 확인(이벤트 중복처리 방지)
     private bool isRemoved;
 
-    private void Start()
+    protected virtual void Start()
     {
+        Reset();
         currentHp = maxHp; // 현재 체력을 최대 체력으로 초기화
         currentWayPointIndex = 0;
         pathManager = FindAnyObjectByType<PathManager>();
         UpdateHpUI();
         originSpeed = moveSpeed;
     }
+
+    abstract protected void Reset();
 
     private void Update()
     {
