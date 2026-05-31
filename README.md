@@ -18,12 +18,14 @@
 ## 팀 구성 및 역할
 | 이름 | 역할 | 담당 내용 |
 |---|---|---|
-| @shgmlrkd(https://github.com/shgmlrkd) | 팀장 | 프로젝트 관리 및 시스템 구현 |
-| @Gachathief(https://github.com/Gachathief) | 몬스터 개발 | |
-| @ssuuji(https://github.com/ssuuji) | 타워 개발 | |
-| @fanjae(https://github.com/fanjae) | UI 및 시스템 | |
-| @Bandalgom-33(https://github.com/Bandalgom-33)| 타워 개발 | |
-| @voyager-on-star(https://github.com/voyager-on-star) | 몬스터 개발 |
+| [@shgmlrkd](https://github.com/shgmlrkd) | 팀장 | 프로젝트 관리 및 시스템 구현 |
+| [@Gachathief](https://github.com/Gachathief) | 몬스터 개발 | |
+| [@ssuuji](https://github.com/ssuuji) | 타워 개발 | |
+| [@fanjae](https://github.com/fanjae) | UI 및 시스템 | |
+| [@Bandalgom-33](https://github.com/Bandalgom-33)| 타워 개발 | |
+| [@voyager-on-star](https://github.com/voyager-on-star) | 몬스터 개발 |
+
+
 
 ## 실행 방법
 ### 싱글 플레이
