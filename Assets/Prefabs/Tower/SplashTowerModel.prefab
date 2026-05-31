@@ -736,7 +736,7 @@ MonoBehaviour:
   bulletSpeed: 10
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   cooldownUI: {fileID: 960707313114948684}
 --- !u!1 &8274988195183570104
 GameObject:
