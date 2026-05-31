@@ -119,7 +119,7 @@ public class NormalTowerBase : MonoBehaviour
     protected virtual void Fire()
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        if (bulletObj.TryGetComponent(out bullet bullet))
+        if (bulletObj.TryGetComponent(out NormalBaseBullet bullet))
         {
             bullet.Initialize(CurrentEnemy, damage, bulletSpeed);
         }
