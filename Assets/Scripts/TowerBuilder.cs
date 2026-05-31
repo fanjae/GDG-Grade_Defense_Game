@@ -12,6 +12,8 @@ public class TowerBuilder : MonoBehaviour
     private Renderer hitRenderer;
     private Color originColor;
 
+    public bool CanBuild { get; set; } // 타워 지을 수 있는 상태 판단
+
     private void Start()
     {
         mainCam = Camera.main;
@@ -19,6 +21,9 @@ public class TowerBuilder : MonoBehaviour
 
     private void Update()
     {
+        if (!CanBuild) // 웨이브 도중에는 비활성화 처리 (지을 수 없음)
+            return ;
+
         if(Input.GetMouseButtonDown(0))
         {
             BuildTower();
