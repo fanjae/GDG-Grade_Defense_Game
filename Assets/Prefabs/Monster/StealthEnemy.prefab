@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3897424212496973653}
   - component: {fileID: 1129979988099127273}
   - component: {fileID: 8400511046920064090}
+  - component: {fileID: 2395745373472406695}
   m_Layer: 6
   m_Name: StealthEnemy
   m_TagString: Untagged
@@ -143,6 +144,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2395745373472406695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035683306309228471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960db907e798fc8459f5d4c57021e2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StealthEnemy
+  moveSpeed: 4
+  maxHp: 10
+  coinValue: 5
+  hpSlider: {fileID: 0}
+  slowCount: 0
+  visibleTime: 4
+  stealthTime: 2
+  enemyLayerName: Enemy
+  stealthLayerName: Default
+  stealthAlpha: 0.5
 --- !u!1 &2490858330164753256
 GameObject:
   m_ObjectHideFlags: 0
