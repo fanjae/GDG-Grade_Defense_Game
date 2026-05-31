@@ -9,6 +9,9 @@ public class TowerData : ScriptableObject
     [Header("UI")]
     public Sprite[] icons;
 
-    [Header("프리팹")]
+    [Header("일반 프리팹")]
     public GameObject[] towerPrefabs;
+
+    [Header("고스트 프리팹")]
+    public GameObject[] towerGhostPrefabs;
 }
