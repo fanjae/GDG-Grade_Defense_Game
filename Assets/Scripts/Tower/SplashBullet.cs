@@ -6,7 +6,7 @@ public class SplashBullet : MonoBehaviour
     [SerializeField] private float lifetime = 3.0f;
 
     [Tooltip("범위 데미지")]
-    [SerializeField] private int splashDamage = 2;
+    [SerializeField] private int splashDamage = 1;
 
     private Enemy _target;
     private Rigidbody _rb;
