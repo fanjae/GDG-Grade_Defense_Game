@@ -4,7 +4,7 @@ using UnityEditor.PackageManager.Requests;
 using UnityEngine;
     using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     // 몬스터가 사망하거나 끝점에 도달해서 제거 되는 것을 외부에 알려주기 위한 Event
     public event Action<Enemy> onRemoved;
@@ -42,10 +42,7 @@ public class Enemy : MonoBehaviour
         originSpeed = moveSpeed;
     }
 
-    protected virtual void Reset()
-    {
-
-    }
+    abstract protected void Reset();
 
     private void Update()
     {
