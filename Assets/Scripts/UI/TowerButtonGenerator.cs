@@ -26,7 +26,7 @@ public class TowerButtonGenerator : MonoBehaviour
             // 그 버튼 오브젝트가 가질 타워 프리팹 정보를 세팅함
             if(towerButtonObject.TryGetComponent(out TowerBtnUI towerButtonUI))
             {
-                towerButtonUI.SetTowerPrefab(towerData.towerPrefabs[i], towerData.icons[i], towerData.towerNames[i]);
+                towerButtonUI.SetTowerPrefab(towerData.towerPrefabs[i], towerData.towerGhostPrefabs[i], towerData.icons[i], towerData.towerNames[i]);
             }
         }
     }

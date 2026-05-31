@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1190683562005110306, guid: f456b3ba4145c844d9c61e1718dedba2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.528987
+      value: -9.55462
       objectReference: {fileID: 0}
     - target: {fileID: 1190683562005110306, guid: f456b3ba4145c844d9c61e1718dedba2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.204
+      value: 0.46504
       objectReference: {fileID: 0}
     - target: {fileID: 1190683562005110306, guid: f456b3ba4145c844d9c61e1718dedba2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.385818
+      value: -1.69897
       objectReference: {fileID: 0}
     - target: {fileID: 1190683562005110306, guid: f456b3ba4145c844d9c61e1718dedba2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -84,8 +84,29 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 9e87c996958c0c049b8a98b570ac6f13, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2804864539139036899, guid: f456b3ba4145c844d9c61e1718dedba2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8822470659753831373, guid: f456b3ba4145c844d9c61e1718dedba2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4653357721725292860}
   m_SourcePrefab: {fileID: 100100000, guid: f456b3ba4145c844d9c61e1718dedba2, type: 3}
+--- !u!1 &6911782131121866566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8822470659753831373, guid: f456b3ba4145c844d9c61e1718dedba2, type: 3}
+  m_PrefabInstance: {fileID: 2703324606743686283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4653357721725292860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911782131121866566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d277e09c8bb614a88e0ee55623d568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGhost
