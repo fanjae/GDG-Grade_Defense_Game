@@ -15,6 +15,9 @@ public class StageController : MonoBehaviour
     [Header("TowerBuilder")]
     [SerializeField] private TowerBuilder towerBuilder;
 
+    [Header("Spawn Point")]
+    [SerializeField] private GameObject spawnPointImage; // 몬스터 스폰 지점
+
     private int currentStageIndex;
     private int currentWaveIndex;
 
@@ -28,6 +31,9 @@ public class StageController : MonoBehaviour
 
         if (towerBuilder != null) // 타워 빌더도 웨이브 도중에 지을 수 없음
             towerBuilder.CanBuild = false;
+
+        if (spawnPointImage != null)
+            spawnPointImage.SetActive(false);
 
         currentStageIndex = 0;
 
@@ -87,6 +93,10 @@ public class StageController : MonoBehaviour
         if (buildUI != null)
             buildUI.SetActive(true);
 
+        // 타워 지을땐 몬스터 스폰 지점 보이게 설정
+        if (spawnPointImage != null)
+            spawnPointImage.SetActive(true);
+
         // 타워 빌더 지을 수 있게 변경
         if (towerBuilder != null)
             towerBuilder.CanBuild = true;
@@ -100,6 +110,10 @@ public class StageController : MonoBehaviour
         // 버튼이 눌리면 Build UI 비활성화        
         if (buildUI != null)
             buildUI.SetActive(false);
+
+        // 웨이브 시작하면 다시 스폰 지점 보이는 것 다시 비활성화 
+        if (spawnPointImage != null)
+            spawnPointImage.SetActive(false);
 
     }
 
