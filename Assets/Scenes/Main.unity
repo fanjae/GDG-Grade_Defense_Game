@@ -440,7 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -961,15 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41eb1fd3b77c36f429fd150775f55293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerButtonGenerator
-  towerPrefabs:
-  - {fileID: 3995316109686142156, guid: eb05fdb71780f99408c099f70ceb5dd5, type: 3}
-  - {fileID: 3995316109686142156, guid: 2a071282bbf0f8446803e8538951366d, type: 3}
-  - {fileID: 3995316109686142156, guid: 9885fa80a7c67bd40aa266d9ec2e6c44, type: 3}
-  - {fileID: 3995316109686142156, guid: 2f253131c827be5458456ee23b432d0e, type: 3}
-  - {fileID: 3995316109686142156, guid: de99adf86ed3fa043a1527d5d8657187, type: 3}
-  - {fileID: 3995316109686142156, guid: 3a95356c25a55354ca3d1187add079ca, type: 3}
-  - {fileID: 3995316109686142156, guid: 8a3f8786040230c4fa8d6b402904a7e9, type: 3}
-  - {fileID: 3995316109686142156, guid: 7cefd03f2a92faf4380d559e98a68a4e, type: 3}
+  towerData: {fileID: 11400000, guid: 6c87473f4cdf4c7428501a6812654dbf, type: 2}
   towerButton: {fileID: 8192723492768699933, guid: 72e84f4c9002f8449a8b0e5b5a4a96f6, type: 3}
 --- !u!1 &516322138
 GameObject:
@@ -2971,7 +2963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
