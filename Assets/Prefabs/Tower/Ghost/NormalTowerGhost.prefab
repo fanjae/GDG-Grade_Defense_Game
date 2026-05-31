@@ -50,15 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: cb060b16b6eab56458bf2802fdce4037, type: 2}
     - target: {fileID: 6638575035954312612, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.2035947
+      value: -9.55462
       objectReference: {fileID: 0}
     - target: {fileID: 6638575035954312612, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0115441
+      value: 0.46504
       objectReference: {fileID: 0}
     - target: {fileID: 6638575035954312612, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.992826
+      value: -1.69897
       objectReference: {fileID: 0}
     - target: {fileID: 6638575035954312612, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -106,19 +106,20 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9e87c996958c0c049b8a98b570ac6f13, type: 2}
     m_RemovedComponents:
     - {fileID: 5338127665415865665, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
+    - {fileID: 2606170835971079559, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1792229255671237705, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6096458577671757824}
+      addedObject: {fileID: 1848482038273154912}
   m_SourcePrefab: {fileID: 100100000, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
 --- !u!1 &1702815486156648726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1792229255671237705, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
   m_PrefabInstance: {fileID: 1116570183565999455}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6096458577671757824
+--- !u!114 &1848482038273154912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,27 +128,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1702815486156648726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1447cfff81da2e643a7f580c4f29ef01, type: 3}
+  m_Script: {fileID: 11500000, guid: 37d277e09c8bb614a88e0ee55623d568, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NormalTower
-  towerHead: {fileID: 6007290046274291963}
-  firePoint: {fileID: 8525097685254847067}
-  bulletPrefab: {fileID: 8054769380708073010, guid: 9ab80c70ddee7c64c998f7d44a23ca22, type: 3}
-  attackRange: 5
-  attackInterval: 0.5
-  damage: 1
-  bulletSpeed: 15
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  cooldownUI: {fileID: 0}
---- !u!4 &6007290046274291963 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6638575035954312612, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
-  m_PrefabInstance: {fileID: 1116570183565999455}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8525097685254847067 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8733009125658642180, guid: 834debe0b19ad8241a41d1444c5311a0, type: 3}
-  m_PrefabInstance: {fileID: 1116570183565999455}
-  m_PrefabAsset: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGhost

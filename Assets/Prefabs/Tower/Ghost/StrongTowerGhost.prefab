@@ -50,15 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9e87c996958c0c049b8a98b570ac6f13, type: 2}
     - target: {fileID: 6747429093595566741, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9709027
+      value: -9.55462
       objectReference: {fileID: 0}
     - target: {fileID: 6747429093595566741, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0115443
+      value: 0.46504
       objectReference: {fileID: 0}
     - target: {fileID: 6747429093595566741, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.25287
+      value: -1.69897
       objectReference: {fileID: 0}
     - target: {fileID: 6747429093595566741, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -104,20 +104,21 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 3f3d26e07a76d1144b05fb41e82afbf8, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6083229117271416647, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 392374853697989174, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8329000091430939444}
+      addedObject: {fileID: 6205798390622427029}
   m_SourcePrefab: {fileID: 100100000, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
 --- !u!1 &1957006104926179423 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 392374853697989174, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
   m_PrefabInstance: {fileID: 2186867564856195689}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8329000091430939444
+--- !u!114 &6205798390622427029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,27 +127,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1957006104926179423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 662bb4fca6c28fe408fb303a8cf2ced0, type: 3}
+  m_Script: {fileID: 11500000, guid: 37d277e09c8bb614a88e0ee55623d568, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StrongDamageTower
-  towerHead: {fileID: 4898508420161071356}
-  firePoint: {fileID: 2969930869686630232}
-  bulletPrefab: {fileID: 8054769380708073010, guid: 9ab80c70ddee7c64c998f7d44a23ca22, type: 3}
-  attackRange: 5
-  attackInterval: 1.5
-  damage: 5
-  bulletSpeed: 8
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  cooldownUI: {fileID: 0}
---- !u!4 &2969930869686630232 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3994130010946456881, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
-  m_PrefabInstance: {fileID: 2186867564856195689}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4898508420161071356 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6747429093595566741, guid: ffe3ead81ce7ccf429ced73a1970e8f7, type: 3}
-  m_PrefabInstance: {fileID: 2186867564856195689}
-  m_PrefabAsset: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGhost

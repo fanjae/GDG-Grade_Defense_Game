@@ -28,7 +28,7 @@ public class TowerBuilder : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (TowerPrefab != null && Input.GetMouseButtonDown(0))
         {
             BuildTower();
         }
@@ -80,9 +80,10 @@ public class TowerBuilder : MonoBehaviour
                 }
 
                 Vector3 buildPosition = hit.collider.transform.position;
-
                 buildPosition.y = 1.2f;
+
                 Instantiate(TowerPrefab, buildPosition, Quaternion.identity);
+                TowerPrefab = null;
 
                 buildTile.SetBuild();
             }

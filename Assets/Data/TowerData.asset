@@ -42,3 +42,13 @@ MonoBehaviour:
   - {fileID: 791995137954010669, guid: 6fec90f4336ea424fa3b45f03e1fd371, type: 3}
   - {fileID: 6911782131121866566, guid: ea89508d0fef1ae43ae8fd4bac2831af, type: 3}
   - {fileID: 392374853697989174, guid: 414a59c5ef80d784bbef6bc264bd747f, type: 3}
+  towerGhostPrefabs:
+  - {fileID: 1702815486156648726, guid: 1fddc2a56bf1ba2489d415f952974ce0, type: 3}
+  - {fileID: 1792229255671237705, guid: e1677712fb2ab0c4b9ba83ee53902222, type: 3}
+  - {fileID: 8333548261475174133, guid: 8a8b943178eeb3143bc64819b991a37f, type: 3}
+  - {fileID: 252422130909986883, guid: e0676b9cdf6972f4780562a33c95a93b, type: 3}
+  - {fileID: 7785066658524635234, guid: 59469a52159bf9e47bd3333976eb2d8f, type: 3}
+  - {fileID: 1957006104926179423, guid: 3d672f4d9e1bf4f49be43b0533b8d469, type: 3}
+  - {fileID: 791995137954010669, guid: cba58880ef283f142bd664f6fbc250b1, type: 3}
+  - {fileID: 6911782131121866566, guid: 5c5c841eb23f02847a3a18e82e5c459e, type: 3}
+  - {fileID: 392374853697989174, guid: 1a50aa78c413eee4db2a7f8db3a5998f, type: 3}
