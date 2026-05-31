@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 852439679774704327}
   - component: {fileID: 6135634816320140080}
   - component: {fileID: 695652260481200372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 5242573723405041645}
   - component: {fileID: 3109175208714290726}
   - component: {fileID: 8277766315884705419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_ears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 1904697844967549419}
   - component: {fileID: 5025554837199527668}
   - component: {fileID: 4113653432393377742}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_hair_male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 1583397704554270961}
   - component: {fileID: 3276330470586236615}
   - component: {fileID: 3907527096915044521}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 7637824268358083929}
   - component: {fileID: 7602913379901661008}
   - component: {fileID: 5883690724684814652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6598093755906138353}
   - component: {fileID: 1323110801902546660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_eyebrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 2383349776490063747}
   - component: {fileID: 6242898175903936826}
   - component: {fileID: 1698225621742894668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_pants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +839,7 @@ GameObject:
   - component: {fileID: 8403240786313462885}
   - component: {fileID: 7732849477796430502}
   - component: {fileID: 8065962900668223458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LongRangeTowerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -912,7 +912,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8054769380708073010, guid: 9ab80c70ddee7c64c998f7d44a23ca22, type: 3}
   attackRange: 10
   attackInterval: 1
-  damage: 2
+  damage: 1
   bulletSpeed: 20
   enemyLayer:
     serializedVersion: 2
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 6590786503323155437}
   - component: {fileID: 6994493908336551471}
   - component: {fileID: 8620084511777911501}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_shirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1020,7 +1020,7 @@ GameObject:
   - component: {fileID: 3981302846742865330}
   - component: {fileID: 5636393269364285759}
   - component: {fileID: 6742156634386050687}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1109,7 +1109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 57596739804343192}
   - component: {fileID: 165963709254931231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
