@@ -6,7 +6,7 @@ public class DotBullet : MonoBehaviour
     [SerializeField] private float lifetime = 3.0f;
 
     [Tooltip("도트데미지")]
-    [SerializeField] private int dotDamage = 2;
+    [SerializeField] private int dotDamage = 1;
     [Tooltip("도트 지속시간")]
     [SerializeField] private float dotDuration = 3.0f;
     [Tooltip("도트 데미지 간격")]
