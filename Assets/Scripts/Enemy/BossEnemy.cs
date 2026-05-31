@@ -90,14 +90,12 @@ public class BossEnemy : Enemy
         moveSpeed = 0f; //이동 중단
         yield return bossWait;
 
-        Collider[] towers = Physics.OverlapSphere(transform.position, attackRange, towerLayer);
-        List<NormalTowerBase> towersInCurrentRange = new List<NormalTowerBase>();
         //범위 내 Tower들의 공격속도를 n초 간 0으로
+        Collider[] towers = Physics.OverlapSphere(transform.position, attackRange, towerLayer); 
         foreach (var col in towers)
         {
             if (col.TryGetComponent(out NormalTowerBase tower))
             {
-                towersInCurrentRange.Add(tower);
                 tower.AddStun(StunTime);
             }
         }
