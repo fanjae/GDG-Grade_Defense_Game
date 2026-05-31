@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2197,7 +2197,10 @@ MonoBehaviour:
   enemySpawner: {fileID: 1171334875}
   stages:
   - waves:
-    - spawnInfos: []
+    - spawnInfos:
+      - enemyPrefab: {fileID: 2709699590945568676, guid: 937225870a2ff7b47bff574965de86d7, type: 3}
+        count: 5
+        interval: 1
     - spawnInfos: []
     - spawnInfos: []
   - waves: []
