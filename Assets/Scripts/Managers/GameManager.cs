@@ -19,8 +19,14 @@ public class GameManager : MonoBehaviour
     [Header("Coin Setting")]
     [SerializeField] private int startCoin = 0;
 
+    [Header("Game Over UI")]
+    [SerializeField] private GameObject gameOverPanel;
+
     private int currentLife;
     private int coin;
+    private bool isGameOver;
+
+    public bool IsGameOver => isGameOver; // 게임오버 확인용 프로퍼티
 
     private void Awake()
     {
@@ -69,8 +75,19 @@ public class GameManager : MonoBehaviour
 
         if (currentLife <= 0) // 현재 라이프가 0이면 게임오버
         {
-            // GameOver();  
+            GameOver();
         }
+    }
+    private void GameOver()
+    {
+        if (isGameOver) return;
+
+        isGameOver = true;
+
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 
     private void UpdateLifeUI() // 라이프 갱신
