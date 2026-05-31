@@ -31,6 +31,9 @@ public class StageController : MonoBehaviour
 
         currentStageIndex = 0;
 
+        // 게임 시작 직후, 첫 웨이브 전에 타워 설치
+        yield return StartCoroutine(EnterBuildTime());
+
         // 등록된 스테이지를 순서대로 실행
         while (currentStageIndex < stages.Length)
         {
@@ -62,17 +65,17 @@ public class StageController : MonoBehaviour
 
             currentWaveIndex++;
 
-            // 다음 웨이브가 남아있으면 Build UI 버튼 입력 대기
+            // 다음 웨이브 시작 전, 타워 건설 시간 진입.
             if (currentWaveIndex < stageData.Waves.Length)
             {
-                yield return StartCoroutine(WaitBuildUI());
+                yield return StartCoroutine(EnterBuildTime());
             }
         }
 
         Debug.Log($"Stage {currentStageIndex + 1} Clear");
     }
 
-    private IEnumerator WaitBuildUI()
+    private IEnumerator EnterBuildTime()
     {
         // 버튼 클릭 상태 초기화 
         isNextWaveButtonClicked = false;
