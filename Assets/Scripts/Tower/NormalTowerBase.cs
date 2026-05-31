@@ -29,11 +29,12 @@ public class NormalTowerBase : MonoBehaviour
     [SerializeField] private TowerCooldownUI cooldownUI;
     
     protected Enemy CurrentEnemy;
-    protected WaitForSeconds AttackWait;
+    protected float SturnTime ;
+    protected WaitForSeconds StunWait;
 
     protected virtual void Awake()
     {
-        AttackWait = new WaitForSeconds(attackInterval);
+       
         if (towerHead == null) towerHead = transform;
 
         cooldownUI?.SetCooldown(1.0f);
@@ -99,6 +100,13 @@ public class NormalTowerBase : MonoBehaviour
                 continue; // while 처음으로 이동
             }
 
+            if (SturnTime > 0)
+            {
+                yield return StunWait;
+                SturnTime = 0;
+                continue;
+            }
+
             Fire();
 
             float timer = 0.0f;
@@ -128,16 +136,20 @@ public class NormalTowerBase : MonoBehaviour
     {
         damage += damageAdd;
         attackInterval -= intervalSub;
-        attackInterval = Mathf.Max(0.1f, attackInterval); // 최소 공격 간격 제한
-        AttackWait = new WaitForSeconds(attackInterval); // 대기 시간 갱신
+        attackInterval = Mathf.Max(0.1f, attackInterval); 
     }
 
     public void RemoveBuff(int damageSub, float intervalAdd)
     {
         damage -= damageSub;
         attackInterval += intervalAdd;
-        AttackWait = new WaitForSeconds(attackInterval); // 대기 시간 갱신
     }
+
+    public void AddStun(float stunTime)
+    {
+        SturnTime = stunTime;
+    }
+    
 
     private void OnDrawGizmosSelected()
     {
