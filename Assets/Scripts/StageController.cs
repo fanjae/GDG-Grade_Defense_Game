@@ -12,6 +12,9 @@ public class StageController : MonoBehaviour
     [Header("Build UI")]
     [SerializeField] private GameObject buildUI; // 빌드 UI
 
+    [Header("TowerBuilder")]
+    [SerializeField] private TowerBuilder towerBuilder;
+
     private int currentStageIndex;
     private int currentWaveIndex;
 
@@ -22,6 +25,9 @@ public class StageController : MonoBehaviour
     {
         if (buildUI != null)
             buildUI.SetActive(false);
+
+        if (towerBuilder != null) // 타워 빌더도 웨이브 도중에 지을 수 없음
+            towerBuilder.CanBuild = false;
 
         currentStageIndex = 0;
 
@@ -75,12 +81,20 @@ public class StageController : MonoBehaviour
         if (buildUI != null)
             buildUI.SetActive(true);
 
+        // 타워 빌더 지을 수 있게 변경
+        if (towerBuilder != null)
+            towerBuilder.CanBuild = true;
+
         // 버튼 입력 대기
         yield return new WaitUntil(() => isNextWaveButtonClicked);
+
+        if (towerBuilder != null)
+            towerBuilder.CanBuild = false;
 
         // 버튼이 눌리면 Build UI 비활성화        
         if (buildUI != null)
             buildUI.SetActive(false);
+
     }
 
     // 다음 웨이브 시작 버튼 OnClick에 연결할 메서드
