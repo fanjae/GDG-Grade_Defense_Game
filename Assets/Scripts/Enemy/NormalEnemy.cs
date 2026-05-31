@@ -2,7 +2,7 @@
 
 public class NormalEnemy : Enemy
 {
-    private void Reset()
+    protected override void Reset()
     {
         moveSpeed = 2.0f;
         maxHp = 20;

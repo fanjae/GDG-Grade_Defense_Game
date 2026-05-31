@@ -9,19 +9,27 @@ public class StealthEnemy : Enemy
     [Tooltip("은신하는 시간")]
     [SerializeField] private float stealthTime = 2.0f;
 
-    [Header("레이어 이름 설정")]
+    [Header("레이어 설정")]
     [SerializeField] private string enemyLayerName = "Enemy";
     [SerializeField] private string stealthLayerName = "Default";
+
+    //투명도 알파값
+    [SerializeField] private float stealthAlpha = 0.5f;
+
+    private Renderer enemyRenderer;
 
     private int enemyLayer;
     private int stealthLayer;
 
-    private Renderer enemyRenderer;
-
-    protected void Start()
+    protected override void Reset()
     {
-        enemyRenderer = GetComponent<Renderer>();
-
+        moveSpeed = 4.0f;
+        maxHp = 10;
+        coinValue = 5;
+    }
+    protected override void Start()
+    {
+        base.Start();
         enemyLayer = LayerMask.NameToLayer(enemyLayerName);
         stealthLayer = LayerMask.NameToLayer(stealthLayerName);
 
@@ -34,15 +42,21 @@ public class StealthEnemy : Enemy
         {
             //비은신 상태
             gameObject.layer = enemyLayer;
-            enemyRenderer.enabled = true;
+            SetAlpha(1.0f);
 
             yield return new WaitForSeconds(visibleTime);
 
             //은신 상태
             gameObject.layer = stealthLayer;
-            enemyRenderer.enabled = false;
+            SetAlpha(stealthAlpha);
 
             yield return new WaitForSeconds(stealthTime);
         }
+    }
+    protected void SetAlpha(float alphaValue)
+    {
+        Color color = enemyRenderer.material.color;
+        color.a = alphaValue;
+        enemyRenderer.material.color = color;
     }
 }
