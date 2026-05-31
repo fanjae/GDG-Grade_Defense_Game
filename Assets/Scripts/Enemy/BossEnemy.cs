@@ -16,8 +16,6 @@ public class BossEnemy : Enemy
     [Tooltip("타워 레이어 설정")]
     [SerializeField] private LayerMask towerLayer;
 
-    private List<NormalTowerBase> targetsInRange = new List<NormalTowerBase>();
-
     private WaitForSeconds bossWait;
     private WaitForSeconds bossCooldown;
     private bool isStun = true; //스턴 발동 조건
@@ -100,6 +98,7 @@ public class BossEnemy : Enemy
             if (col.TryGetComponent(out NormalTowerBase tower))
             {
                 towersInCurrentRange.Add(tower);
+                tower.AddStun(StunTime);
             }
         }
         yield return bossWait;
