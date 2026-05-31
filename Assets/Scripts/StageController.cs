@@ -35,12 +35,15 @@ public class StageController : MonoBehaviour
         yield return StartCoroutine(EnterBuildTime());
 
         // 등록된 스테이지를 순서대로 실행
-        while (currentStageIndex < stages.Length)
+        while (currentStageIndex < stages.Length && !GameManager.Instance.IsGameOver)
         {
             StageData currentStage = stages[currentStageIndex];
 
             // 현재 스테이지의 모든 웨이브 진행
             yield return StartCoroutine(PlayStage(currentStage));
+
+            if (GameManager.Instance.IsGameOver) 
+                yield break;
 
             currentStageIndex++;
         }
@@ -56,7 +59,7 @@ public class StageController : MonoBehaviour
         currentWaveIndex = 0;
 
         // 현재 스테이지 안의 웨이브를 순서대로 실행
-        while (currentWaveIndex < stageData.Waves.Length)
+        while (currentWaveIndex < stageData.Waves.Length && !GameManager.Instance.IsGameOver)
         {
             WaveData currentWave = stageData.Waves[currentWaveIndex];
 
@@ -66,7 +69,7 @@ public class StageController : MonoBehaviour
             currentWaveIndex++;
 
             // 다음 웨이브 시작 전, 타워 건설 시간 진입.
-            if (currentWaveIndex < stageData.Waves.Length)
+            if (currentWaveIndex < stageData.Waves.Length && !GameManager.Instance.IsGameOver)
             {
                 yield return StartCoroutine(EnterBuildTime());
             }
