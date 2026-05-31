@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7578451176877341100}
   - component: {fileID: 4205265525602495845}
   - component: {fileID: 438978068523544077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_hair_male
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 761773710360841489}
   - component: {fileID: 3403956455392540867}
   - component: {fileID: 7093989459792581129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_pants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 6747429093595566741}
   - component: {fileID: 6083229117271416647}
   - component: {fileID: -4887587273912668886}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DebuffTowerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 4494524418047775380}
   - component: {fileID: 5007099913298540489}
   - component: {fileID: 7422714934028432289}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_ears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 3994130010946456881}
   - component: {fileID: 7673926170409520262}
   - component: {fileID: 6700398850398133930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3022878095155808376}
   - component: {fileID: 4677314746056651214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_eyebrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 8747700904451381100}
   - component: {fileID: 7106039506140881366}
   - component: {fileID: 4781002048734850136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 4223389233715658337}
   - component: {fileID: 2987354080182392592}
   - component: {fileID: 1594773126863668902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_shirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 6416369896916923843}
   - component: {fileID: 182577963265540097}
   - component: {fileID: 3601753848254348251}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1022,7 +1022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897864577292706966}
   - component: {fileID: 5693514663241317154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}

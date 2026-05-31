@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6262367152987239708}
   - component: {fileID: 5864291206283650054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_eyebrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2403869025672195657}
   - component: {fileID: 1002624419029052349}
   - component: {fileID: 57890696255287826}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 7890961476168175081}
   - component: {fileID: 2428602720970662956}
   - component: {fileID: 6627314823659378055}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 1621460295745812354}
   - component: {fileID: 6852109761130118135}
   - component: {fileID: 1189817897778103435}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_dummy_ears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 3819627580411196073}
   - component: {fileID: 245659588899076712}
   - component: {fileID: 8477329624375075579}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BuffTowerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,8 +647,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   checkInterval: 0.5
-  buffDamage: 5
-  buffIntervalReduction: 0.2
+  buffDamage: 2
+  buffIntervalReduction: 0.1
 --- !u!1 &6916309500854872245
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 3962948516972333166}
   - component: {fileID: 7744965600407845979}
   - component: {fileID: 1045109182123611049}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_dummy_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 5587864462641996333}
   - component: {fileID: 3446117173447801045}
   - component: {fileID: 1227406805357183831}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MiniTerretModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   firePoint: {fileID: 5589793627356309607}
   bulletPrefab: {fileID: 8054769380708073010, guid: 9ab80c70ddee7c64c998f7d44a23ca22, type: 3}
   attackRange: 5
-  attackInterval: 0.8
+  attackInterval: 1
   damage: 1
   bulletSpeed: 10
   enemyLayer:
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 5589793627356309607}
   - component: {fileID: 5617928692786808825}
   - component: {fileID: 5607134423303241751}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sharpener holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 5589856220810665301}
   - component: {fileID: 5617898194043836607}
   - component: {fileID: 5609116605481069945}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sharpener large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 5589593892475110275}
   - component: {fileID: 5619356668174380773}
   - component: {fileID: 5607162319705794907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sharpener crank
   m_TagString: Untagged
   m_Icon: {fileID: 0}

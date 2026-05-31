@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 249271336129205349}
   - component: {fileID: 6421556806871345855}
   - component: {fileID: 5556390086318464651}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_female_eyelashes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 8164418025520238688}
   - component: {fileID: 8021154832424024706}
   - component: {fileID: 4870930727459932317}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SummonerTowerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   firePoint: {fileID: 5688210692503874905}
   bulletPrefab: {fileID: 5584630378863885035, guid: 429cbeb6dbf8f00429d0b774e61374eb, type: 3}
   attackRange: 5
-  attackInterval: 0.8
+  attackInterval: 1
   damage: 1
   bulletSpeed: 10
   enemyLayer:
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4808944939066035946}
   - component: {fileID: 3675122905678984772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 772525204649089730}
   - component: {fileID: 4786545043576098850}
   - component: {fileID: 7581587995432727259}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 5916607343909517139}
   - component: {fileID: 7409898435866389383}
   - component: {fileID: 8196812734370330541}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_dress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,7 +658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5834323737818009779}
   - component: {fileID: 7151990104472713490}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_eyebrows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 1224688020526726400}
   - component: {fileID: 2726076226442579383}
   - component: {fileID: 7846280100861072742}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_ears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 7286525371233732937}
   - component: {fileID: 430011864009976362}
   - component: {fileID: 8752254597053871904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -933,7 +933,7 @@ GameObject:
   - component: {fileID: 5688210692503874905}
   - component: {fileID: 3122387381778685384}
   - component: {fileID: 7276391474702539252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_nose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,7 +1023,7 @@ GameObject:
   - component: {fileID: 4883424512197206436}
   - component: {fileID: 3062688613289109549}
   - component: {fileID: 3759453283392834526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule_basic_hair_female
   m_TagString: Untagged
   m_Icon: {fileID: 0}
