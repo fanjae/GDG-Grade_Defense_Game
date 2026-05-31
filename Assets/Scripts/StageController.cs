@@ -25,6 +25,9 @@ public class StageController : MonoBehaviour
     [SerializeField] private int countdownTime = 3;
     [SerializeField] private float countdownInterval = 1.0f;
 
+    [Header("Stage Wave UI")]
+    [SerializeField] private TextMeshProUGUI stageWaveText; 
+
     private int currentStageIndex;
     private int currentWaveIndex;
 
@@ -75,6 +78,8 @@ public class StageController : MonoBehaviour
         while (currentWaveIndex < stageData.Waves.Length && !GameManager.Instance.IsGameOver)
         {
             WaveData currentWave = stageData.Waves[currentWaveIndex];
+
+            UpdateStageWaveUI();
 
             // 현재 웨이브의 모든 적 제거 대기
             yield return StartCoroutine(enemySpawner.SpawnWave(currentWave));
@@ -148,5 +153,12 @@ public class StageController : MonoBehaviour
 
 
         countdownPanel.SetActive(false); // 패널 가리기
+    }
+
+    private void UpdateStageWaveUI()
+    {
+        if (stageWaveText == null) return;
+
+        stageWaveText.text = $"Stage {currentStageIndex + 1} - Wave {currentWaveIndex + 1}"; 
     }
 }
