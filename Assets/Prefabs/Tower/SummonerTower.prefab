@@ -335,7 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SummonerTower
   towerHead: {fileID: 388111760533106165}
   firePoint: {fileID: 6171500487407237789}
-  bulletPrefab: {fileID: 3995316109686142156, guid: 196613ae4ce9f7545b17cef44fbdce7b, type: 3}
+  bulletPrefab: {fileID: 5584630378863885035, guid: 429cbeb6dbf8f00429d0b774e61374eb, type: 3}
   attackRange: 5
   attackInterval: 0.8
   damage: 1
