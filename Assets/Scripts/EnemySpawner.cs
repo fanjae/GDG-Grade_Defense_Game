@@ -37,7 +37,9 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnGroup(EnemySpawnInfo spawnInfo)
     {
-        // 해당 몬스터 그룹 스폰 간격
+        if (spawnInfo.StartDelay > 0f)
+            yield return new WaitForSeconds(spawnInfo.StartDelay);
+
         WaitForSeconds wait = new WaitForSeconds(spawnInfo.Interval);
 
         // 설정된 수만큼 몬스터 생성
