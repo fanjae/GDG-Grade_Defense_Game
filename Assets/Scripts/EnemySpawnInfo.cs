@@ -10,7 +10,7 @@ public class EnemySpawnInfo // 적스폰 정보
     [Header("Spawn Setting")]
     [SerializeField] private int count = 5;
     [SerializeField] private float interval = 1.0f;
-    [SerializeField] private float startDelay;
+    [SerializeField] private float startDelay = 0f;
 
 
     public Enemy EnemyPrefab => enemyPrefab;
