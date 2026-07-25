@@ -26,11 +26,6 @@
 | [@Bandalgom-33](https://github.com/Bandalgom-33)| 타워 개발 | 기본/소환/버프 타워 개발 및 타워 프리팹 구조 수정 |
 | [@voyager-on-star](https://github.com/voyager-on-star) | 몬스터 개발 | 기본/대형/은신 등 각종 몬스터 구현 및 몬스터 디버프 시스템 구현  |
 
-## 실행 방법
-### 싱글 플레이
-1. Unity 프로젝트를 엽니다.
-2. Unity Editor에서 Play 버튼을 눌러 실행합니다.
-
 ## 구현 기능
 
 | 항목 | 화면 | 내용 |
